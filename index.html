@@ -6,11 +6,10 @@
 
 <title>Harpia Fomalhaut</title>
 
-<!-- ————— Шрифты ————— -->
+<!-- ————— ШРИФТЫ ————— -->
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
 
 <style>
-/* ————— БАЗА СТРАНИЦЫ ————— */
 html, body {
   margin: 0;
   padding: 0;
@@ -31,6 +30,23 @@ body {
   font-family: 'PT Serif', serif;
 }
 
+/* ————— ПЛАВНОЕ ПОЯВЛЕНИЕ ————— */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page {
+  animation: fadeIn 0.9s ease-out;
+}
+
+/* ————— ПЛАВНЫЙ УХОД СО СТРАНИЦЫ ————— */
+.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 /* ————— МЕРЦАНИЕ ЗВЁЗД ————— */
 @keyframes thtwinkle1 {
   0%, 100% { opacity:0.15; transform:scale(0.85); }
@@ -48,6 +64,8 @@ body {
 </head>
 
 <body>
+
+<div class="page" id="pageRoot">
 
 <!-- ————— ВНЕШНИЙ ПРОЗРАЧНЫЙ СЛОЙ ————— -->
 <div style="
@@ -79,7 +97,7 @@ body {
   color:#d4c8ff;
 ">
 
-<!-- ————— ЗВЁЗДНЫЙ ФОН ВИЗИТКИ ————— -->
+<!-- ————— ЗВЁЗДНЫЙ ФОН ————— -->
 <div style="
   position:absolute;
   inset:0;
@@ -87,7 +105,6 @@ body {
   z-index:0;
   overflow:hidden;
 ">
-
   <div style="
     position:absolute;
     top:50%;
@@ -108,7 +125,7 @@ body {
     height:6px;
     border-radius:50%;
     background:rgba(255,255,255,0.7);
-    animation:thtwinkle1 3s infinite ease-in-out;
+    animation:thtwinkle1 3s infinite;
   "></div>
 
   <div style="
@@ -119,7 +136,7 @@ body {
     height:4px;
     border-radius:50%;
     background:rgba(255,255,255,0.6);
-    animation:thtwinkle2 2.4s infinite ease-in-out;
+    animation:thtwinkle2 2.4s infinite;
   "></div>
 
   <div style="
@@ -130,13 +147,12 @@ body {
     height:5px;
     border-radius:50%;
     background:rgba(255,255,255,0.65);
-    animation:thtwinkle3 3.6s infinite ease-in-out;
+    animation:thtwinkle3 3.6s infinite;
   "></div>
 </div>
 
-<!-- ————— АВАТАРКА ————— -->
-<div style="flex:0 0 auto; display:flex; align-items:center; justify-content:center; z-index:1;">
-
+<!-- ————— АВАТАР ————— -->
+<div style="flex:0 0 auto; z-index:1;">
   <div style="
     width:115px;
     height:115px;
@@ -146,22 +162,14 @@ body {
     align-items:center;
     justify-content:center;
   ">
-
     <div style="
       width:95px;
       height:95px;
       border-radius:50%;
       background:rgba(255,255,255,0.45);
       overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
     ">
-      <img src="https://files.catbox.moe/mq8fye.gif" style="
-        width:100%;
-        height:100%;
-        object-fit:cover;
-      ">
+      <img src="https://files.catbox.moe/mq8fye.gif" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
 </div>
@@ -192,19 +200,40 @@ body {
 
   <div style="margin-top:8px;font-size:0.85rem;color:#ffffff;line-height:1.35;text-align:center;">
     ✦ Hello and welcome! ✦<br>
-    Feral artist focusing on wolves from my original setting Aerolune.<br>
-    Inspired by night skies, distant stars, and birds in flight.
+    Feral artist focusing on wolves from Aerolune.<br>
+    Inspired by night skies, stars and birds.
   </div>
 
+  <!-- ССЫЛКИ -->
   <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;">
     <a href="https://www.deviantart.com/harpiafomalhaut" style="color:#fff;text-decoration:none;">✦ DeviantArt ✦</a>
     <a href="https://www.furaffinity.net/user/harpiafomalhaut" style="color:#fff;text-decoration:none;">✦ FurAffinity ✦</a>
     <a href="https://t.me/harpiafomalhaut" style="color:#fff;text-decoration:none;">✦ Telegram ✦</a>
+
+    <!-- ПЕРЕХОД В ПРАЙС -->
+    <a href="price.html"
+       onclick="transitionTo(event, 'price.html')"
+       style="color:#fff;text-decoration:none; margin-top:4px;">
+      ✦ Commission Price List ✦
+    </a>
   </div>
 
 </div>
 </div>
 </div>
+</div>
+
+<!-- ————— JS ДЛЯ ПЛАВНОГО ПЕРЕХОДА ————— -->
+<script>
+function transitionTo(event, url) {
+  event.preventDefault();
+  const page = document.getElementById('pageRoot');
+  page.classList.add('fade-out');
+  setTimeout(() => {
+    window.location.href = url;
+  }, 400);
+}
+</script>
 
 </body>
 </html>
