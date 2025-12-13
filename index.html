@@ -40,6 +40,31 @@ html, body {
 @keyframes thtwinkle1 {0%,100%{opacity:0.15;transform:scale(0.85);}50%{opacity:0.9;transform:scale(1);}}
 @keyframes thtwinkle2 {0%,100%{opacity:0.1;transform:scale(0.8);}50%{opacity:0.85;transform:scale(1.1);}}
 @keyframes thtwinkle3 {0%,100%{opacity:0.12;transform:scale(0.75);}50%{opacity:0.95;transform:scale(1.05);}}
+
+/* Подзаголовки прайс-листа */
+.price-subtitle {
+  font-weight:700;
+  font-size:1.1rem;
+  margin-top:12px;
+  margin-bottom:6px;
+}
+
+/* Изображения под подзаголовки */
+.price-image {
+  max-width:100%;
+  height:auto;
+  border-radius:12px;
+  margin-bottom:10px;
+  object-fit:cover;
+}
+
+/* Фон прайса */
+#priceList {
+  border-radius:16px;
+  background: rgba(255,255,255,0.45);
+  border:3px solid rgba(255,255,255,0.85);
+  box-shadow:0 0 12px rgba(255,255,255,0.4),0 0 26px rgba(200,180,255,0.25);
+}
 </style>
 </head>
 
@@ -56,20 +81,36 @@ html, body {
   color:#d4c8ff;
   display:flex;
   gap:14px;
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
   position:relative;
 ">
 
-  <!-- Звёздный фон -->
-  <div style="position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden;">
-    <div style="position:absolute; top:18%; left:22%; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.7); animation:thtwinkle1 3s infinite;"></div>
-    <div style="position:absolute; top:72%; left:68%; width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,0.6); animation:thtwinkle2 2.4s infinite;"></div>
-    <div style="position:absolute; top:30%; left:75%; width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.65); animation:thtwinkle3 3.6s infinite;"></div>
+  <!-- Аватарка слева -->
+  <div style="flex:0 0 auto; z-index:1;">
+    <div style="
+      width:115px;
+      height:115px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.28);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    ">
+      <div style="
+        width:95px;
+        height:95px;
+        border-radius:50%;
+        background:rgba(255,255,255,0.45);
+        overflow:hidden;
+      ">
+        <img src="https://files.catbox.moe/mq8fye.gif" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
   </div>
 
   <!-- Контент -->
-  <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:6px;">
+  <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
     <div style="font-family:'Monsieur La Doulaise', cursive; font-size:2.2rem; color:#fff; text-align:center; text-shadow:0 0 8px #e6d9ff,0 0 14px #c9b4ff,0 0 28px #9c7cff;">HarpiaFomalhaut</div>
     <div style="font-weight:700;color:#ffffff;text-align:center;">₊•́ Guardian of the Stargate North •́₊</div>
     <div style="font-size:0.9rem;color:#f1e3ff;text-align:center;">Sevda / animal artist / 20 y.o.</div>
@@ -85,45 +126,79 @@ html, body {
 
 <!-- ПРАЙС ЛИСТ -->
 <div id="priceList" style="
-  max-width:720px;
-  padding:28px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.40);
-  border:3px solid rgba(255,255,255,0.85);
-  box-shadow:0 0 12px rgba(255,255,255,0.4),0 0 26px rgba(200,180,255,0.25);
-  color:#ffffff;
   display:none;
   flex-direction:column;
   align-items:center;
+  padding:28px;
+  max-width:720px;
   position:relative;
 ">
-  <div style="position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden;">
-    <div style="position:absolute; top:20%; left:15%; width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.7); animation:thtwinkle1 3s infinite;"></div>
-    <div style="position:absolute; top:70%; left:75%; width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.6); animation:thtwinkle2 2.5s infinite;"></div>
-    <div style="position:absolute; top:40%; left:55%; width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,0.65); animation:thtwinkle3 3.4s infinite;"></div>
+
+  <!-- Аватарка сверху -->
+  <div style="flex:0 0 auto; z-index:1; margin-bottom:10px;">
+    <div style="
+      width:115px;
+      height:115px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.28);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    ">
+      <div style="
+        width:95px;
+        height:95px;
+        border-radius:50%;
+        background:rgba(255,255,255,0.45);
+        overflow:hidden;
+      ">
+        <img src="https://files.catbox.moe/mq8fye.gif" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
   </div>
 
-  <div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:14px;">
-    <div style="font-family:'Monsieur La Doulaise', cursive; font-size:2.2rem; text-align:center; text-shadow:0 0 8px #e6d9ff,0 0 14px #c9b4ff,0 0 28px #9c7cff;">✦ Commission Price List ✦</div>
+  <!-- Заголовок -->
+  <div style="font-family:'Monsieur La Doulaise', cursive; font-size:2.2rem; color:#fff; text-align:center; text-shadow:0 0 8px #e6d9ff,0 0 14px #c9b4ff,0 0 28px #9c7cff; margin-bottom:12px;">Commission Price List</div>
 
-    <div style="max-width:600px; font-size:0.9rem; line-height:1.55; text-align:left; color:#ffffff;">
-      <strong>✧ Main Commission</strong><br>Fullbody • Clean shading • Soft background<br><br>$65 / €60 / ₽6000
-      <br><br>⸻<br><br>
-      <strong>✧ Reference Add-ons</strong><br>Head icon — $10 / €9 / ₽900<br>Portrait — $20 / €18 / ₽1800<br>Halfbody — $30 / €27 / ₽2700
-      <br><br>⸻<br><br>
-      <strong>✧ Illustration</strong><br>Extended scene / complex composition<br>From $110 / €100 / ₽10500
-      <br><br>⸻<br><br>
-      <strong>✧ Sketch Commission</strong><br>Loose fullbody sketch<br>$30 / €27 / ₽2700
-      <br><br>⸻<br><br>
-      <strong>✧ Loyalty Credit</strong><br>Returning paths leave starlight behind.<br><br>
-      Main ($65+) → $5 credit<br>Main + Add-ons ($95+) → $10 credit<br>Illustration ($110+) → $15 credit<br><br>
-      Credits never expire, usable partially or fully.<br>Calculated in payment currency.<br>Does not stack with Telegram discount.<br>YCH and base adoptables do not grant credit.<br>Adoptables with artwork — credit applies to artwork only.
-      <br><br>⸻<br><br>
-      Telegram members receive 10% off.<br>Prices may slightly vary due to exchange rates.
-    </div>
+  <div style="
+    border-radius:16px;
+    background: rgba(255,255,255,0.45);
+    border:3px solid rgba(255,255,255,0.85);
+    box-shadow:0 0 12px rgba(255,255,255,0.4),0 0 26px rgba(200,180,255,0.25);
+    padding:18px;
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  ">
+    <!-- Main Commission -->
+    <div class="price-subtitle">Main Commission</div>
+    <img src="https://via.placeholder.com/600x200" class="price-image">
+    <div>$65 / €60 / ₽6000</div>
+
+    <!-- Reference Add-ons -->
+    <div class="price-subtitle">Reference Add-ons</div>
+    <img src="https://via.placeholder.com/600x150" class="price-image">
+    <div>Head icon — $10 / €9 / ₽900<br>Portrait — $20 / €18 / ₽1800<br>Halfbody — $30 / €27 / ₽2700</div>
+
+    <!-- Illustration -->
+    <div class="price-subtitle">Illustration</div>
+    <img src="https://via.placeholder.com/600x250" class="price-image">
+    <div>Extended scene / complex composition<br>From $110 / €100 / ₽10500</div>
+
+    <!-- Sketch Commission -->
+    <div class="price-subtitle">Sketch Commission</div>
+    <img src="https://via.placeholder.com/600x180" class="price-image">
+    <div>Loose fullbody sketch<br>$30 / €27 / ₽2700</div>
+
+    <!-- Loyalty Credit -->
+    <div class="price-subtitle">Loyalty Credit</div>
+    <img src="https://via.placeholder.com/600x120" class="price-image">
+    <div>Returning paths leave starlight behind.<br>Main ($65+) → $5 credit<br>Main + Add-ons ($95+) → $10 credit<br>Illustration ($110+) → $15 credit</div>
 
     <a href="#" onclick="showCard()" style="margin-top:12px; color:#ffffff; text-decoration:none; font-size:0.85rem;">✦ Return to the Stargate ✦</a>
   </div>
+
 </div>
 
 <script>
