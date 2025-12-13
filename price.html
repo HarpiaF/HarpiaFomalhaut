@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Commission Price List</title>
+
+<!-- ————— ШРИФТЫ ————— -->
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: url('https://files.catbox.moe/ukgj5l.png') center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  font-family: 'PT Serif', serif;
+}
+
+/* ————— ПЛАВНОЕ ПОЯВЛЕНИЕ ————— */
+@keyframes fadeRise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ————— МЕРЦАНИЕ ЗВЁЗД ————— */
+@keyframes thtwinkle1 {
+  0%, 100% { opacity:0.15; transform:scale(0.85); }
+  50% { opacity:0.9; transform:scale(1); }
+}
+@keyframes thtwinkle2 {
+  0%, 100% { opacity:0.1; transform:scale(0.8); }
+  50% { opacity:0.85; transform:scale(1.1); }
+}
+@keyframes thtwinkle3 {
+  0%, 100% { opacity:0.12; transform:scale(0.75); }
+  50% { opacity:0.95; transform:scale(1.05); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ————— ВНЕШНИЙ СЛОЙ ————— -->
+<div style="
+  padding:12px;
+  border-radius:20px;
+  background:rgba(233,145,255,0.22);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation: fadeRise 0.8s ease-out;
+">
+
+<!-- ————— ВНУТРЕННИЙ КОНТЕЙНЕР ————— -->
+<div style="
+  position:relative;
+  max-width:720px;
+  width:100%;
+  padding:28px;
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.40);
+  border:3px solid rgba(255,255,255,0.85);
+
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.4),
+    0 0 26px rgba(200,180,255,0.25);
+
+  color:#ffffff;
+  animation: fadeRise 1s ease-out;
+">
+
+<!-- ————— ЗВЁЗДНЫЙ ФОН ————— -->
+<div style="
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+">
+  <div style="
+    position:absolute;
+    top:20%;
+    left:15%;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.7);
+    animation:thtwinkle1 3s infinite;
+  "></div>
+
+  <div style="
+    position:absolute;
+    top:70%;
+    left:75%;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.6);
+    animation:thtwinkle2 2.5s infinite;
+  "></div>
+
+  <div style="
+    position:absolute;
+    top:40%;
+    left:55%;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.65);
+    animation:thtwinkle3 3.4s infinite;
+  "></div>
+</div>
+
+<!-- ————— КОНТЕНТ ————— -->
+<div style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:14px;">
+
+<!-- АВАТАР -->
+<div style="
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.28);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+">
+  <div style="
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.45);
+    overflow:hidden;
+  ">
+    <img src="https://files.catbox.moe/mq8fye.gif" style="width:100%;height:100%;object-fit:cover;">
+  </div>
+</div>
+
+<!-- ЗАГОЛОВОК -->
+<div style="
+  font-family:'Monsieur La Doulaise', cursive;
+  font-size:2.2rem;
+  text-align:center;
+  text-shadow:
+    0 0 8px #e6d9ff,
+    0 0 14px #c9b4ff,
+    0 0 28px #9c7cff;
+">
+✦ Commission Price List ✦
+</div>
+
+<!-- ————— ТЕКСТ ПРАЙСА ————— -->
+<div style="
+  max-width:600px;
+  font-size:0.9rem;
+  line-height:1.55;
+  text-align:left;
+  color:#ffffff;
+">
+
+<strong>✧ Main Commission</strong><br>
+Fullbody • Clean shading • Soft background<br><br>
+$65 / €60 / ₽6000
+
+<br><br>⸻<br><br>
+
+<strong>✧ Reference Add-ons</strong><br>
+Head icon — $10 / €9 / ₽900<br>
+Portrait — $20 / €18 / ₽1800<br>
+Halfbody — $30 / €27 / ₽2700<br><br>
+Reference details included with add-ons.<br>
+Separate request: + $5 / €4 / ₽400
+
+<br><br>⸻<br><br>
+
+<strong>✧ Illustration</strong><br>
+Extended scene / complex composition<br>
+From $110 / €100 / ₽10500
+
+<br><br>⸻<br><br>
+
+<strong>✧ Sketch Commission</strong><br>
+Loose fullbody sketch<br>
+$30 / €27 / ₽2700
+
+<br><br>⸻<br><br>
+
+<strong>✧ Loyalty Credit</strong><br>
+Returning paths leave starlight behind.<br><br>
+
+Main ($65+) → $5 credit<br>
+Main + Add-ons ($95+) → $10 credit<br>
+Illustration ($110+) → $15 credit<br><br>
+
+Credits never expire, usable partially or fully.<br>
+Calculated in payment currency.<br>
+Does not stack with Telegram discount.<br>
+YCH and base adoptables do not grant credit.<br>
+Adoptables with artwork — credit applies to artwork only.
+
+<br><br>⸻<br><br>
+
+Telegram members receive 10% off.<br>
+Prices may slightly vary due to exchange rates.
+
+</div>
+
+<!-- НАЗАД -->
+<a href="index.html" style="
+  margin-top:12px;
+  color:#ffffff;
+  text-decoration:none;
+  font-size:0.85rem;
+">
+✦ Return to the Stargate ✦
+</a>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
