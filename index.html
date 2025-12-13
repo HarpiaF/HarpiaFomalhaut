@@ -20,6 +20,7 @@ html, body {
 body {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -59,6 +60,34 @@ body {
 @keyframes thtwinkle3 {
   0%, 100% { opacity:0.12; transform:scale(0.75); }
   50% { opacity:0.95; transform:scale(1.05); }
+}
+
+/* ————— ПЛАВНОЕ ПОЯВЛЕНИЕ ПРАЙСА ————— */
+#priceList {
+  max-width: 420px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.40);
+  border: 3px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.4),
+    0 0 26px rgba(200,180,255,0.25);
+
+  color: #d4c8ff;
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  display: none;
+}
+
+#priceList.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
@@ -211,8 +240,8 @@ body {
     <a href="https://t.me/harpiafomalhaut" style="color:#fff;text-decoration:none;">✦ Telegram ✦</a>
 
     <!-- ПЕРЕХОД В ПРАЙС -->
-    <a href="price.html"
-       onclick="transitionTo(event, 'price.html')"
+    <a href="#"
+       onclick="showPrice(event)"
        style="color:#fff;text-decoration:none; margin-top:4px;">
       ✦ Commission Price List ✦
     </a>
@@ -223,15 +252,24 @@ body {
 </div>
 </div>
 
-<!-- ————— JS ДЛЯ ПЛАВНОГО ПЕРЕХОДА ————— -->
+<!-- ————— ПРАЙС ЛИСТ ————— -->
+<div id="priceList">
+  <h2 style="text-align:center;color:#ffffff;">Commission Price List</h2>
+  <ul style="color:#f1e3ff; line-height:1.4; padding-left:20px;">
+    <li>Sketch — $10</li>
+    <li>Lineart — $15</li>
+    <li>Full Color — $25</li>
+    <li>Animated GIF — $40</li>
+  </ul>
+</div>
+
+<!-- ————— JS ДЛЯ ПЛАВНОГО ПОЯВЛЕНИЯ ————— -->
 <script>
-function transitionTo(event, url) {
+function showPrice(event) {
   event.preventDefault();
-  const page = document.getElementById('pageRoot');
-  page.classList.add('fade-out');
-  setTimeout(() => {
-    window.location.href = url;
-  }, 400);
+  const price = document.getElementById('priceList');
+  price.classList.add('show');
+  price.scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 
