@@ -6,7 +6,6 @@
 
 <title>Harpia Fomalhaut</title>
 
-<!-- Шрифты -->
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
 
 <style>
@@ -19,15 +18,15 @@ html, body {
   background: url('https://files.catbox.moe/ukgj5l.png') center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  display: block; /* убрали flex для корректного скролла */
-  overflow-y: auto; /* разрешаем вертикальный скролл */
+  display: block;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
 .fade-out {
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(-20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fadeRise {
@@ -47,6 +46,12 @@ html, body {
   font-size:1.1rem;
   margin-top:12px;
   margin-bottom:6px;
+}
+
+/* Разделители */
+.divider {
+  border-top: 1px solid rgba(255,255,255,0.4);
+  margin: 6px 0 10px 0;
 }
 
 /* Изображения под подзаголовки */
@@ -70,6 +75,14 @@ html, body {
   display: none;
   flex-direction: column;
   align-items: center;
+}
+.return-link {
+  display:block;
+  text-align:center;
+  margin-top:12px;
+  color:#ffffff;
+  text-decoration:none;
+  font-size:0.85rem;
 }
 </style>
 </head>
@@ -160,27 +173,32 @@ html, body {
   <div style="font-family:'Monsieur La Doulaise', cursive; font-size:2.2rem; color:#fff; text-align:center; text-shadow:0 0 8px #e6d9ff,0 0 14px #c9b4ff,0 0 28px #9c7cff; margin-bottom:12px;">Commission Price List</div>
 
   <div style="display:flex; flex-direction:column; gap:10px; max-width:100%;">
+
     <div class="price-subtitle">Main Commission</div>
+    <div class="divider"></div>
     <img src="https://via.placeholder.com/600x200" class="price-image">
     <div>$65 / €60 / ₽6000</div>
 
     <div class="price-subtitle">Reference Add-ons</div>
+    <div class="divider"></div>
     <img src="https://via.placeholder.com/600x150" class="price-image">
     <div>Head icon — $10 / €9 / ₽900<br>Portrait — $20 / €18 / ₽1800<br>Halfbody — $30 / €27 / ₽2700</div>
 
     <div class="price-subtitle">Illustration</div>
+    <div class="divider"></div>
     <img src="https://via.placeholder.com/600x250" class="price-image">
     <div>Extended scene / complex composition<br>From $110 / €100 / ₽10500</div>
 
     <div class="price-subtitle">Sketch Commission</div>
+    <div class="divider"></div>
     <img src="https://via.placeholder.com/600x180" class="price-image">
     <div>Loose fullbody sketch<br>$30 / €27 / ₽2700</div>
 
     <div class="price-subtitle">Loyalty Credit</div>
-    <img src="https://via.placeholder.com/600x120" class="price-image">
+    <div class="divider"></div>
     <div>Returning paths leave starlight behind.<br>Main ($65+) → $5 credit<br>Main + Add-ons ($95+) → $10 credit<br>Illustration ($110+) → $15 credit</div>
 
-    <a href="#" onclick="showCard()" style="margin-top:12px; color:#ffffff; text-decoration:none; font-size:0.85rem;">✦ Return to the Stargate ✦</a>
+    <a href="#" onclick="showCard()" class="return-link">✦ Return to the Stargate ✦</a>
   </div>
 </div>
 
@@ -188,13 +206,15 @@ html, body {
 function showPrice() {
   const card = document.getElementById('card');
   const price = document.getElementById('priceList');
+  card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  price.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
   card.classList.add('fade-out');
   setTimeout(() => {
     card.style.display = 'none';
     price.style.display = 'flex';
     price.classList.add('fadeRise');
     price.scrollIntoView({behavior:'smooth'});
-  }, 500);
+  }, 600);
 }
 
 function showCard() {
