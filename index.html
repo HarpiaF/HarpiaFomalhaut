@@ -206,16 +206,18 @@ html, body {
 function showPrice() {
   const card = document.getElementById('card');
   const price = document.getElementById('priceList');
-  
-  card.classList.add('fade-out');
+
+  card.classList.add('fade-out'); // плавное исчезновение визитки
   setTimeout(() => {
     card.style.display = 'none';
+    card.classList.remove('fade-out'); // убираем fade-out, чтобы при следующем появлении всё работало
+
     price.style.display = 'flex';
-    price.classList.add('fadeRise');
+    price.classList.add('fadeRise'); // плавное появление прайса
     price.scrollIntoView({behavior:'smooth'});
-    
+
     setTimeout(() => {
-      price.classList.remove('fadeRise');
+      price.classList.remove('fadeRise'); // сбрасываем для повторного использования
     }, 800);
   }, 600);
 }
@@ -223,18 +225,18 @@ function showPrice() {
 function showCard() {
   const card = document.getElementById('card');
   const price = document.getElementById('priceList');
-  
-  price.classList.add('fade-out');
+
+  price.classList.add('fade-out'); // плавное исчезновение прайса
   setTimeout(() => {
     price.style.display = 'none';
-    price.classList.remove('fade-out');
+    price.classList.remove('fade-out'); // сбрасываем класс
 
-    card.style.display = 'flex';
-    card.classList.add('fadeRise');
+    card.style.display = 'flex'; 
+    card.classList.add('fadeRise'); // плавное появление визитки
     card.scrollIntoView({behavior:'smooth'});
 
     setTimeout(() => {
-      card.classList.remove('fadeRise');
+      card.classList.remove('fadeRise'); // сброс класса
     }, 800);
   }, 600);
 }
