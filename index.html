@@ -14,14 +14,14 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   font-family: 'PT Serif', serif;
   background: url('https://files.catbox.moe/ukgj5l.png') center center no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block; /* убрали flex для корректного скролла */
+  overflow-y: auto; /* разрешаем вертикальный скролл */
+  box-sizing: border-box;
 }
 
 .fade-out {
@@ -64,6 +64,12 @@ html, body {
   background: rgba(255,255,255,0.45);
   border:3px solid rgba(255,255,255,0.85);
   box-shadow:0 0 12px rgba(255,255,255,0.4),0 0 26px rgba(200,180,255,0.25);
+  padding:28px;
+  margin: 20px auto;
+  max-width: 720px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
 </head>
@@ -83,6 +89,7 @@ html, body {
   gap:14px;
   flex-direction:row;
   align-items:center;
+  margin: 20px auto;
   position:relative;
 ">
 
@@ -125,15 +132,7 @@ html, body {
 </div>
 
 <!-- ПРАЙС ЛИСТ -->
-<div id="priceList" style="
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  padding:28px;
-  max-width:720px;
-  position:relative;
-">
-
+<div id="priceList">
   <!-- Аватарка сверху -->
   <div style="flex:0 0 auto; z-index:1; margin-bottom:10px;">
     <div style="
@@ -160,45 +159,29 @@ html, body {
   <!-- Заголовок -->
   <div style="font-family:'Monsieur La Doulaise', cursive; font-size:2.2rem; color:#fff; text-align:center; text-shadow:0 0 8px #e6d9ff,0 0 14px #c9b4ff,0 0 28px #9c7cff; margin-bottom:12px;">Commission Price List</div>
 
-  <div style="
-    border-radius:16px;
-    background: rgba(255,255,255,0.45);
-    border:3px solid rgba(255,255,255,0.85);
-    box-shadow:0 0 12px rgba(255,255,255,0.4),0 0 26px rgba(200,180,255,0.25);
-    padding:18px;
-    max-width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  ">
-    <!-- Main Commission -->
+  <div style="display:flex; flex-direction:column; gap:10px; max-width:100%;">
     <div class="price-subtitle">Main Commission</div>
     <img src="https://via.placeholder.com/600x200" class="price-image">
     <div>$65 / €60 / ₽6000</div>
 
-    <!-- Reference Add-ons -->
     <div class="price-subtitle">Reference Add-ons</div>
     <img src="https://via.placeholder.com/600x150" class="price-image">
     <div>Head icon — $10 / €9 / ₽900<br>Portrait — $20 / €18 / ₽1800<br>Halfbody — $30 / €27 / ₽2700</div>
 
-    <!-- Illustration -->
     <div class="price-subtitle">Illustration</div>
     <img src="https://via.placeholder.com/600x250" class="price-image">
     <div>Extended scene / complex composition<br>From $110 / €100 / ₽10500</div>
 
-    <!-- Sketch Commission -->
     <div class="price-subtitle">Sketch Commission</div>
     <img src="https://via.placeholder.com/600x180" class="price-image">
     <div>Loose fullbody sketch<br>$30 / €27 / ₽2700</div>
 
-    <!-- Loyalty Credit -->
     <div class="price-subtitle">Loyalty Credit</div>
     <img src="https://via.placeholder.com/600x120" class="price-image">
     <div>Returning paths leave starlight behind.<br>Main ($65+) → $5 credit<br>Main + Add-ons ($95+) → $10 credit<br>Illustration ($110+) → $15 credit</div>
 
     <a href="#" onclick="showCard()" style="margin-top:12px; color:#ffffff; text-decoration:none; font-size:0.85rem;">✦ Return to the Stargate ✦</a>
   </div>
-
 </div>
 
 <script>
