@@ -207,15 +207,16 @@ function showPrice() {
   const card = document.getElementById('card');
   const price = document.getElementById('priceList');
   
-  // Плавное исчезновение визитки
   card.classList.add('fade-out');
   setTimeout(() => {
     card.style.display = 'none';
-    
-    // Появление прайса
     price.style.display = 'flex';
     price.classList.add('fadeRise');
     price.scrollIntoView({behavior:'smooth'});
+    
+    setTimeout(() => {
+      price.classList.remove('fadeRise');
+    }, 800);
   }, 600);
 }
 
@@ -223,24 +224,19 @@ function showCard() {
   const card = document.getElementById('card');
   const price = document.getElementById('priceList');
   
-  // Плавное исчезновение прайса
   price.classList.add('fade-out');
-  
-  // Визитка уже на месте и видна
-  card.style.display = 'flex';
-  card.classList.remove('fade-out'); // убираем возможный предыдущий fade-out
-  card.classList.add('fadeRise');
-
   setTimeout(() => {
-    // После исчезновения прайса скрываем его
     price.style.display = 'none';
     price.classList.remove('fade-out');
 
-    // Убираем класс fadeRise у визитки, чтобы анимацию можно было повторить
+    card.style.display = 'flex';
+    card.classList.add('fadeRise');
+    card.scrollIntoView({behavior:'smooth'});
+
     setTimeout(() => {
       card.classList.remove('fadeRise');
     }, 800);
-  }, 600); // соответствует длительности fade-out
+  }, 600);
 }
 </script>
 
